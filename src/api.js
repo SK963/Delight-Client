@@ -1,6 +1,6 @@
 // API client – all communication with the API Gateway
 
-const API = ''; // empty = same origin, proxied by Vite dev server
+const API = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, ''); // empty = same origin (dev proxy), or remote gateway URL (production)
 
 function getToken() { return localStorage.getItem('cd_token'); }
 
